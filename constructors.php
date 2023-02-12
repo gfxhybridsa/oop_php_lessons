@@ -3,8 +3,14 @@
 class Product{
 
     //setting up properties
-    public $name = 'soap';
-    public $price = 1000;
+    public $name;
+    public $price;
+
+    public function __construct($name = 'Rental',$price = 50)
+    {
+        $this->name = $name;
+        $this->price = $price;
+    }
 
     //Methods with arguments & signatures
     public function priceAsCurrency($divisor = 10 ,$currencySymbol = '$')
@@ -14,8 +20,7 @@ class Product{
     } 
 }
 
-//Creating a new instance
-$product = new Product();
-//Calling methods
-print $product->priceAsCurrency(currencySymbol: 'R') . PHP_EOL; // Named arguments - specific variables
+$product = new Product(price: 40); //Change specific variable
+print $product->name . PHP_EOL;
+print $product->price . PHP_EOL;
 
